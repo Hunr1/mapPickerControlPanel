@@ -1,0 +1,29 @@
+
+<form (ngSubmit) = "onSubmit(mapPoolName.value)" class="text-center border border-light p-5">
+  <label class = "labels">Leave empty if you want to keep old name</label>
+  <input #mapPoolName class="form-control mb-4" placeholder="New name">
+  <!-- Send button -->
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>
+
+<mat-grid-list cols= "3" rowHeight = "2:1" gutterSize = "10px">
+  <ul *ngFor="let map of mapsArray">
+    <div *ngFor="let singleMap of map;" style="background-image: url({{singleMap.mapImage}});" >
+        <div *ngIf="checkIfMapWasInPool(singleMap.mapName)">
+        <mat-grid-tile style="background-image: url({{singleMap.mapImage}});" (click)="mapClicked(singleMap.mapName)" [ngClass]="'OverlaySelected'"  >
+            <div class= "mapName">
+                {{singleMap.mapName}}
+            </div>
+        </mat-grid-tile>
+        </div>
+
+        <div  *ngIf="!checkIfMapWasInPool(singleMap.mapName)" >
+        <mat-grid-tile style="background-image: url({{singleMap.mapImage}});" (click)="mapClicked(singleMap.mapName)" [ngClass]="'OverlayNotSelected'">
+            <div class= "mapName">
+                {{singleMap.mapName}}
+            </div>
+        </mat-grid-tile>
+        </div>
+    </div>
+  </ul>
+</mat-grid-list>

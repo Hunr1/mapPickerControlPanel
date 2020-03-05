@@ -1,0 +1,14 @@
+<form (ngSubmit) = "onSubmit(gameNameOld, gameNameInputNew.value, gameCreatorInput.value, gameLogoLinkInput.value)" class="text-center border border-light p-5">
+  <label class = "labels"> leave empty if you want to keep old name</label>
+  <input #gameNameInputNew class="form-control mb-4" placeholder="New name">
+
+  <label class = "labels">creator name</label>
+  <input #gameCreatorInput class="form-control mb-4" placeholder="Creator" value = {{gameCreatorOld}}>
+
+  <label class = "labels">logo link</label>
+  <input #gameLogoLinkInput class="form-control mb-4" placeholder="Link to game logo" value = {{gameLogoOld}}>
+
+  <!-- Send button -->
+  <button class="btn btn-primary" type="submit">Save</button>
+
+</form>

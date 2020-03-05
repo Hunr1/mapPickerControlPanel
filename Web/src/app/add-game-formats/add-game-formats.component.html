@@ -1,0 +1,26 @@
+
+<form (ngSubmit) = "onSubmit(formatNameInput.value, winsRequiredInput.value)" class="text-center border border-light p-5">
+  <label class = "labels">Game format name</label>
+  <input #formatNameInput class="form-control mb-4" placeholder="Name">
+
+  <label class = "labels">Wins required</label>
+  <input #winsRequiredInput class="form-control mb-4" placeholder="3">
+  <!-- Send button -->
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>
+
+<div class="list-group" >
+  <div class = "listElement" *ngFor="let gameformat of gameFormatsArray" focusable="false">
+  <li href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let singleFormat of gameformat">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{singleFormat.formatName}}</h5>
+      <div class="btn-group btn-group-justified">
+        <button type="button" class="btn btn-danger  mr-3" (click)="openDialog(singleFormat.formatName)"> Delete </button>
+        <button type="button" class="btn btn-primary"(click) ="editClicked(singleFormat.formatName,singleFormat.winsRequired)"> Edit </button>
+      </div>
+    </div>
+  </li>
+</div>
+</div>
+
+<app-edit-game-formats *ngIf="showEditGameFormatsForm" [gameName]=gameName [formatName]=formatName [winsRequired]=winsRequired></app-edit-game-formats>

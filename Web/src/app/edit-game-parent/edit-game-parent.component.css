@@ -1,0 +1,13 @@
+.labels{
+  float: left;
+}
+.selectButtons{
+  text-align: center;
+}
+.btn{
+  margin: 10px;
+  width: 20%;
+}
+.h4{
+  text-align: center;
+}

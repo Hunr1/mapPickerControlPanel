@@ -1,0 +1,11 @@
+<form (ngSubmit) = "onSubmit(mapNameInputNew.value, mapImageInput.value)" class="text-center border border-light p-5">
+  <label class = "labels"> leave empty if you want to keep old name</label>
+  <input #mapNameInputNew class="form-control mb-4" placeholder="New name">
+
+  <label class = "labels">Image link</label>
+  <input #mapImageInput class="form-control mb-4" placeholder="Image link" value = {{mapImage}}>
+
+  <!-- Send button -->
+  <button class="btn btn-primary" type="submit">Save</button>
+
+</form>

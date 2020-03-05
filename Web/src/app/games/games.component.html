@@ -1,0 +1,28 @@
+<mat-grid-list cols= "3" rowHeight = "2:1" gutterSize = "10px">
+  <ul *ngFor="let game of gamesArray">
+    <mat-grid-tile *ngFor="let singleGame of game" style="background-image: url({{singleGame.logo}});">
+    <div class= "container" >
+      <div class= "GameName">
+        <!-- {{singleGame.gameName}} -->
+      </div>
+      <div class="btn-group btn-group-justified">
+        <button type="button" class="btn btn-danger  mr-3" (click)="openDialog(singleGame.gameName)"> Delete </button>
+        <button type="button" class="btn btn-primary" (click)="editClicked(singleGame.gameName,singleGame.creator,singleGame.logo)"> Edit </button>
+      </div>
+  </div>
+  </mat-grid-tile>
+  </ul>
+</mat-grid-list>
+<div class = "addButton">
+  <button type="button" class="btn btn-success btn-lg float-right" (click)="addClicked()"> Add New Game </button>
+</div>
+<br>
+<br>
+<div class = addGameForm *ngIf="showAddGameForm">
+  <app-add-game-form></app-add-game-form>
+</div>
+
+<div class = editGameForm *ngIf="showEditGameForm">
+  <app-edit-game-parent [gameNameOld]=gameNameOld [gameLogoOld]=gameLogoOld [gameCreatorOld]=gameCreatorOld></app-edit-game-parent>
+</div>
+

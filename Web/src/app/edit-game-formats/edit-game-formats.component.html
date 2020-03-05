@@ -1,0 +1,12 @@
+
+<form (ngSubmit) = "onSubmit(formatNameNew.value, winsRequiredNew.value)" class="text-center border border-light p-5">
+  <label class = "labels"> leave empty if you want to keep old name</label>
+  <input #formatNameNew class="form-control mb-4" placeholder="New name">
+
+  <label class = "labels">wins required</label>
+  <input #winsRequiredNew class="form-control mb-4" placeholder="Creator" value = {{winsRequired}}>
+
+  <!-- Send button -->
+  <button class="btn btn-primary" type="submit">Save</button>
+
+</form>

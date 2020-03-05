@@ -1,0 +1,16 @@
+<!-- Default form contact -->
+<form (ngSubmit) = "onSubmit(gameNameInput.value, gameCreatorInput.value, gameLogoLinkInput.value)" class="text-center border border-light p-5">
+
+  <p class="h4 mb-4">Add game</p>
+
+  <input #gameNameInput class="form-control mb-4" placeholder="Game name">
+
+  <input #gameCreatorInput class="form-control mb-4" placeholder="Creator">
+
+  <input #gameLogoLinkInput class="form-control mb-4" placeholder="Link to game logo">
+
+  <!-- Send button -->
+  <button class="btn btn-primary" type="submit">Save</button>
+
+</form>
+<!-- Default form contact -->

@@ -1,0 +1,28 @@
+<form (ngSubmit) = "onSubmit(gameName, mapNameInput.value, mapImageInput.value)" class="text-center border border-light p-5">
+  <label class = "labels">Map name</label>
+  <input #mapNameInput class="form-control mb-4" placeholder="Name">
+
+  <label class = "labels">Map image</label>
+  <input #mapImageInput class="form-control mb-4" placeholder="Link">
+
+  <!-- Send button -->
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>
+
+<mat-grid-list cols= "3" rowHeight = "2:1" gutterSize = "10px">
+  <ul *ngFor="let map of mapsArray">
+    <mat-grid-tile *ngFor="let singleMap of map" style="background-image: url({{singleMap.mapImage}});">
+    <div class= "container" >
+      <div class= "mapName">
+         {{singleMap.mapName}}
+      </div>
+      <div class="btn-group btn-group-justified">
+        <button type="button" class="btn btn-danger  mr-3" (click)="openDialog(singleMap.mapName)"> Delete </button>
+        <button type="button" class="btn btn-primary" (click)="editClicked(singleMap.mapName,singleMap.mapImage)"> Edit </button>
+      </div>
+  </div>
+  </mat-grid-tile>
+  </ul>
+</mat-grid-list>
+
+<app-edit-maps *ngIf="showEditMapsForm" [gameName]=gameName [mapName]=mapName [mapImage]=mapImage></app-edit-maps>

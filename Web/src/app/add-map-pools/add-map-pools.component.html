@@ -1,0 +1,23 @@
+<form (ngSubmit) = "onSubmit(mapPoolNameInput.value)" class="text-center border border-light p-5">
+  <label class = "labels">Map pool name</label>
+  <input #mapPoolNameInput class="form-control mb-4" placeholder="Name">
+  <!-- Send button -->
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>
+
+<div class="list-group" >
+  <div class = "listElement" *ngFor="let mapPool of mapPoolsArray" focusable="false">
+  <li href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let singleMapPool of mapPool">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{singleMapPool.poolName}}</h5>
+      <div class="btn-group btn-group-justified">
+        <button type="button" class="btn btn-danger  mr-3" (click)="openDialog(singleMapPool.poolName)"> Delete </button>
+        <button type="button" class="btn btn-primary"(click) ="editClicked(singleMapPool.poolName,singleMapPool.maps)"> Edit </button>
+      </div>
+    </div>
+    <p class="mb-1" *ngFor="let map of singleMapPool.maps" >{{map.mapName}}</p>
+  </li>
+</div>
+</div>
+
+<app-edit-map-pools-form *ngIf="showEditMapPoolsForm" [gameName]=gameName [mapPoolName]=mapPoolName [mapsInPool]=mapPoolMaps></app-edit-map-pools-form>

@@ -1,0 +1,13 @@
+<p class="h4 mb-4">Editing {{gameNameOld}}</p>
+
+<div class = "selectButtons">
+  <button class="btn btn-primary" (click)="EditGameClicked()">Edit game</button>
+  <button class="btn btn-primary" (click)="AddMapsClicked()">Add maps</button>
+  <button class="btn btn-primary" (click)="AddMapPoolsClicked()">Add map pools</button>
+  <button class="btn btn-primary" (click)="AddGameFormatsClicked()">Add game formats</button>
+</div>
+
+<app-edit-game-form *ngIf="showEditGame" [gameNameOld]=gameNameOld [gameLogoOld]=gameLogoOld [gameCreatorOld]=gameCreatorOld></app-edit-game-form>
+<app-add-maps *ngIf="showAddMaps"[gameName]=gameNameOld> </app-add-maps>
+<app-add-map-pools *ngIf="showAddMapPools"[gameName]=gameNameOld> </app-add-map-pools>
+<app-add-game-formats *ngIf="showAddGameFormats"[gameName]=gameNameOld></app-add-game-formats>
